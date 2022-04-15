@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const db = require('../index.js').db;
+const Discord = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -13,7 +14,7 @@ module.exports = {
 		const user = interaction.options.getUser('user');
 		await interaction.deferReply();
 
-		if (interaction.user.id !== '296052363427315713') return await interaction.editReply({ content: 'You cannot use this command yet', ephemeral: true });
+		if (!interaction.member.permissions.has([Discord.Permissions.FLAGS.MANAGE_NICKNAMES, Discord.Permissions.FLAGS.MANAGE_ROLES])) return await interaction.editReply({ content: 'You cannot use this command yet', ephemeral: true });
 
 		// start by checking if the guild already has a listing in the database
 		const one = db.prepare(`select * from targetusers where guild = ${interaction.guild.id}`).get();

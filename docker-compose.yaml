@@ -1,6 +1,13 @@
 services:
   nicknamer2:
     image: nicknamer2
+    container_name: nicknamer
     build: .
     restart: always
-    
+    volumes:
+      - type: volume
+        source: nicknamer2db
+        target: /app/data
+
+volumes:
+  nicknamer2db:
