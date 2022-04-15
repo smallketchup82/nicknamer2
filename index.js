@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+// eslint-disable-next-line no-unused-vars
 const sleep = time => new Promise(resolve => setInterval(resolve, time));
 const config = require('./config.json');
 const Database = require('better-sqlite3');
 const fs = require('fs');
-const db = new Database('database.sqlite', { verbose: console.log });
+const db = new Database('database.sqlite');
 module.exports.db = db;
 
 const bot = new Discord.Client({ intents: 33283 });
