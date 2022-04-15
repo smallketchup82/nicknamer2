@@ -1,0 +1,6 @@
+services:
+  nicknamer2:
+    image: nicknamer2
+    build: .
+    restart: always
+    
