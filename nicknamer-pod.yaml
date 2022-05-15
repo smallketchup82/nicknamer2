@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nicknamer2
+spec:
+  containers:
+    - image: 51.222.158.17:5000/nicknamer2
+      name: nicknamer2
+      imagePullPolicy: Never
+      volumeMounts:
+      - name: nicknamer2db
+        mountPath: /app/data
+  volumes:
+    - name: nicknamer2db
+      emptyDir: {}

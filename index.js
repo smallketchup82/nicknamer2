@@ -3,11 +3,19 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 // eslint-disable-next-line no-unused-vars
 const sleep = time => new Promise(resolve => setInterval(resolve, time));
-const config = require('./config.json');
+
+var config;
 const Database = require('better-sqlite3');
 const fs = require('fs');
+if (fs.existsSync('./config.json') {
+config = require('./config.json');
+} else {
+config = process.env;
+}
 const db = new Database('./data/database.sqlite');
 module.exports.db = db;
+
+//config.token = process.env.TOKEN || config.token;
 
 const bot = new Discord.Client({ intents: 33283 });
 
@@ -207,8 +215,9 @@ bot.on('messageCreate', async message => {
 	if (!targetuserid) return;
 	targetuserid = targetuserid.userid;
 
-	const targetuser = await message.guild.members.fetch(targetuserid);
+	const targetuser = await message.guild.members.fetch(targetuserid).catch(() => null);
 	if (!targetuser) return;
+
 	if (message.guild.me.permissions.has([Discord.Permissions.FLAGS.MANAGE_NICKNAMES, Discord.Permissions.FLAGS.VIEW_CHANNEL, Discord.Permissions.FLAGS.SEND_MESSAGES, Discord.Permissions.FLAGS.EMBED_LINKS]) && targetuser.manageable) {
 		try {
 			await targetuser.setNickname(message.content.substring(0, 32));
