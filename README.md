@@ -12,3 +12,4 @@ The next generation nicknamer bot.
 
 ## Run minimally using docker (You don't have to manually download anything with this method)
 Run this command `docker run -d -v nicknamer2db:/app/data -e token="PUT_TOKEN_HERE" smallketchup/nicknamer2` and make sure to replace the token environment variable with your token
+https://hub.docker.com/r/smallketchup/nicknamer2
