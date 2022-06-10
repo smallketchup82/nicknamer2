@@ -7,7 +7,7 @@ const sleep = time => new Promise(resolve => setInterval(resolve, time));
 var config;
 const Database = require('better-sqlite3');
 const fs = require('fs');
-if (fs.existsSync('./config.json') {
+if (fs.existsSync('./config.json')) {
 config = require('./config.json');
 } else {
 config = process.env;
