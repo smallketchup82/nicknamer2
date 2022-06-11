@@ -8,7 +8,11 @@ var config;
 const Database = require('better-sqlite3');
 const fs = require('fs');
 if (fs.existsSync('./config.json')) {
+<<<<<<< HEAD
 	config = require('./config.json');
+=======
+config = require('./config.json');
+>>>>>>> 1d84cc1c83d2b6f6a9ae6165627ebe3c1b2a8c42
 } else {
 	config = process.env;
 }
