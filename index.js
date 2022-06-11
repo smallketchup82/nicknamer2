@@ -7,15 +7,15 @@ const sleep = time => new Promise(resolve => setInterval(resolve, time));
 var config;
 const Database = require('better-sqlite3');
 const fs = require('fs');
-if (fs.existsSync('./config.json') {
-config = require('./config.json');
+if (fs.existsSync('./config.json')) {
+	config = require('./config.json');
 } else {
-config = process.env;
+	config = process.env;
 }
 const db = new Database('./data/database.sqlite');
 module.exports.db = db;
 
-//config.token = process.env.TOKEN || config.token;
+// config.token = process.env.TOKEN || config.token;
 
 const bot = new Discord.Client({ intents: 33283 });
 

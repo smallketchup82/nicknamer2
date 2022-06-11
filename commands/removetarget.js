@@ -9,7 +9,7 @@ module.exports = {
 	async execute(interaction) {
 		await interaction.deferReply();
 
-		if (!interaction.member.permissions.has([Discord.Permissions.FLAGS.MANAGE_NICKNAMES, Discord.Permissions.FLAGS.MANAGE_ROLES])) return await interaction.editReply({ content: 'You cannot use this command yet', ephemeral: true });
+		if (!interaction.member.permissions.has([Discord.Permissions.FLAGS.MANAGE_NICKNAMES, Discord.Permissions.FLAGS.MANAGE_ROLES])) return await interaction.editReply({ content: 'You need `manage nicknames` and `manage roles to use this command.', ephemeral: true });
 
 		// start by checking if the guild already has a listing in the database
 		const one = db.prepare(`select * from targetusers where guild = ${interaction.guild.id}`).get();
