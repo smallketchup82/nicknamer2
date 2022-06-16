@@ -1,5 +1,5 @@
 # nicknamer2
-The next generation nicknamer bot.
+The next generation nicknamer bot. Originally created for the purpose of *not* bullying my friend. This bot allows you to select a user in your server and update their nickname to any messages sent that the bot can see.
 
 # Installation
 ## Run using docker (this is the way I do it, and its probably the best way to run it).
