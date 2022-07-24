@@ -5,9 +5,9 @@ services:
     build: .
     restart: always
     volumes:
-      - type: volume
-        source: nicknamer2db
+      - type: bind
+        source: ./data
         target: /app/data
 
-volumes:
-  nicknamer2db:
+#volumes:
+#  nicknamer2db:
