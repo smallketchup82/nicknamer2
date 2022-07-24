@@ -8,8 +8,6 @@ module.exports = {
 	async execute(interaction) {
 		await interaction.deferReply();
 
-		if (interaction.user.id !== '296052363427315713') return await interaction.editReply({ content: 'You need `manage nicknames` and `manage roles to use this command.', ephemeral: true });
-
 		// start by checking if the guild already has a listing in the database
 		const one = db.prepare(`select * from targetusers where guild = ${interaction.guild.id}`).get();
 
@@ -20,7 +18,7 @@ module.exports = {
 
 			await interaction.editReply(`The current target is <@!${two.userid}>!`);
 		} else {
-			await interaction.editReply('There is not a target currently set for your guild!');
+			await interaction.editReply('There is not a target currently set for this guild!');
 		}
 	},
 };
