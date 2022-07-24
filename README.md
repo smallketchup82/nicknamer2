@@ -8,7 +8,3 @@ The next generation nicknamer bot. Originally created for the purpose of *not* b
 2. Rename `config.json.example` to `config.json` and fill it in.
 3. Create `data` directory. Should be as easy as running `mkdir data`
 4. Run `docker-compose up -d`
-
-## Run minimally using docker (You don't have to manually download anything with this method)
-Run this command `docker run -d -v nicknamer2db:/app/data -e token="PUT_TOKEN_HERE" smallketchup/nicknamer2` and make sure to replace the token environment variable with your token  
-https://hub.docker.com/r/smallketchup/nicknamer2
